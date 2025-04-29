@@ -1,0 +1,23 @@
+{
+  "name": "lma-route-53",
+  "version": "0.1.0",
+  "bin": {
+    "lma-route-53": "bin/lma-route-53.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "test": "jest",
+    "cdk": "cdk"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.2",
+    "aws-cdk": "2.1012.0",
+    "ts-node": "^10.9.2",
+    "typescript": "~5.8.3"
+  },
+  "dependencies": {
+    "aws-cdk-lib": "2.192.0",
+    "constructs": "^10.4.2"
+  }
+}
