@@ -39,4 +39,22 @@ For the automatic deployment GitHub Actions are used. The proper configuration/s
 
 Every time there is a push to either the **main** branch or to **any** other branch a deployment of the stack is started.
 
-**ATTENTION:** There is no difference between the main branch and any other branch. Everything is deployed to production and for development.  
+**ATTENTION:** There is no difference between the main branch and any other branch. Everything is deployed to production and for development.
+
+#### Automatic via CD (Continous Delivery)
+
+The relevant Continous Delivery configuration is provided in this [file](.github/workflows/ci.yml).
+
+Additionally a so called Dependabot is used to check for updated dependencies/libraries and merge them automatically to the main branch. The relevant configuration files can be found [here](./.github/dependabot.yml) and [here](./.github/automerge.yml).
+
+**IMPORTANT:** To use automerge you have to  go to the repo’s settings tab and turn on the "Allow auto-merge option" from the Pull Requests section:
+
+![automerge.jpg](./documentation/images/automerge.jpg)
+
+Additionally a so called branch protection has been setup so that a Pull-Request needs to be deployed to the DEVELOPMENT environment before it is valid to be merged. To achieve this the setting is as follows at the GitHub Project
+
+![branch_protection.jpg](./documentation/images/branch_protection.jpg)
+
+So the deploy job defined [here](./.github/workflows/ci.yml) must succeed before any Pull Request can be merged into the main branch.
+
+
